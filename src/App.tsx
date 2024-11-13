@@ -15,7 +15,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState<any>(null);
 
   const getChatHistory = async () => {
-    const result = await axios.get("http://localhost:8000/chat-history");
+    const result = await axios.get("http://192.168.1.31:8000/chat-history");
     setMessages(result.data);
   };
 
@@ -30,7 +30,7 @@ function App() {
     write_to_log(
       `${currentUser.username} has asked the following question to Torstone Intelligence: ${input}`
     );
-    const result = await axios.post("http://localhost:8000/query", {
+    const result = await axios.post("http://192.168.1.31:8000/query", {
       query: input,
     });
     let chatHistory = result.data.response.chat_history;
